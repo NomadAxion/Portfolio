@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nomad Axion — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand__logo">NA</span><span class="brand__text">Nomad Axion</span></a>
+     <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
+  <span class="hamburger"></span>
+</button>
+      <nav id="mainNav" class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link active">Home</a></li>
+          <li><a href="about.html" class="nav__link">About</a></li>
+          <li><a href="projects.html" class="nav__link">Projects</a></li>
+          <li><a href="contact.html" class="nav__link nav__cta">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1>Code Without Borders</h1>
+        <p class="lead">Hi, I’m <strong>Nomad Axion (Karabo)</strong> — a self-taught developer blending culture, creativity, and code. I build apps that feel like home and look like art.</p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">See My Work</a>
+          <a href="contact.html" class="btn btn-alt">Let’s Connect</a>
+        </div>
+      </div>
+      <div class="hero-image-placeholder">
+        <img src="images/profile.jpg" alt="Nomad Axion Profile Illustration" class="profile-illustration">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section class="container featured section-gap">
+    <header class="section-header">
+      <h2>Featured Projects</h2>
+      <p class="muted">A taste of what I’ve been crafting recently.</p>
+    </header>
+    <div class="project-tiles">
+
+      <article class="project-tile">
+        <a href="projects.html#nguni-generator" class="tile-link coming-soon">
+          <div class="tile-media">
+            <img src="images/igama_lami_logo.png" alt="Nguni Name Generator">
+          </div>
+          <div class="tile-body">
+            <h3>Nguni Name Generator <span class="badge">Coming Soon</span></h3>
+            <p class="muted">Interactive cultural tool with meaningful design.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="project-tile">
+        <a href="projects.html#khanyaflare" class="tile-link coming-soon">
+          <div class="tile-media">
+            <img src="images/khanyaflare.png" alt="KhanyaFlare">
+          </div>
+          <div class="tile-body">
+            <h3>KhanyaFlare <span class="badge">Coming Soon</span></h3>
+            <p class="muted">Social + spiritual wellness platform (WIP).</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="project-tile">
+        <a href="https://github.com/NomadAxion/Marvel-vs-DC-villain-showdown" target="_blank" class="tile-link">
+          <div class="tile-media">
+            <img src="images/marvelvsdc.png" alt="Marvel vs DC">
+          </div>
+          <div class="tile-body">
+            <h3>Marvel vs DC Showdown <i class="fas fa-external-link-alt external-icon"></i></h3>
+            <p class="muted">Superhero project built for FNB App Academy.</p>
+          </div>
+        </a>
+      </article>
+
+    </div>
+    <div class="center">
+      <a href="projects.html" class="btn btn-primary">View All Projects</a>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="container tech-stack section-gap">
+    <header class="section-header">
+      <h2>Tech Stack</h2>
+    </header>
+    <ul class="skill-list glass-card">
+      <li><strong>Languages & Frameworks:</strong> HTML • CSS • JavaScript • Python • Flask • Bootstrap</li>
+      <li><strong>Tools & Platforms:</strong> Git • GitHub • Netlify • Phoenix editor • VS Code</li>
+    </ul>
+  </section>
+
+  <!-- GOALS -->
+  <section class="container goals section-gap">
+    <header class="section-header">
+      <h2>2025 Goals</h2>
+    </header>
+    <ul class="skill-list glass-card">
+      <li><i class="fas fa-check-circle"></i> Complete my social media app</li>
+      <li><i class="fas fa-check-circle"></i> Launch open-source Nguni Name Generator</li>
+      <li><i class="fas fa-check-circle"></i> Contribute to Afro-tech community projects</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="yearIndex"></span> Karabo</div>
+      <nav class="footer-nav">
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/scripts.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('yearIndex').textContent = (new Date()).getFullYear();
+    });
+  </script>
+</body>
+</html>
+
+
+
