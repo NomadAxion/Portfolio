@@ -1389,10 +1389,14 @@ body.nav-open {
 
 .about-profile-photo.hero-image img.profile-illustration,
 .hero-image-placeholder.about-profile-photo img.profile-illustration {
-  width: 100%;
+  /* Keep the full image visible on all devices */
+  width: auto;
+  max-width: 100%;
   height: auto;
-  object-fit: cover; /* ensure it fills like the hero */
+  max-height: var(--hero-image-max-height);
+  object-fit: contain; /* show whole image without cropping */
   display: block;
+  margin: 0 auto;
 }
 
 /* By default the image inherits the same hover scale as other image-containers.
