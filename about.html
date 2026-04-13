@@ -5,17 +5,35 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About — Nomad Axion (Karabo)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><span class="brand__logo">NA</span><span class="brand__text">Nomad Axion</span></a>
+      <a class="brand" href="index.html" aria-label="Nomad Axion — Home">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c77b56"/>
+                <stop offset="50%" stop-color="#e6d8bf"/>
+                <stop offset="100%" stop-color="#eab13d"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="96" height="96" rx="12" fill="url(#g1)" />
+            <rect x="44" y="12" width="8" height="76" rx="3" transform="rotate(22 48 50)" fill="rgba(255,255,255,0.12)" />
+            <text x="50%" y="58%" text-anchor="middle" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="34" fill="#052427">NA</text>
+          </svg>
+        </span>
+        <span class="brand__text">Nomad Axion</span>
+      </a>
      <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
   <span class="hamburger"></span>
 </button>
-      <nav id="mainNav" class="nav">
+  <nav id="mainNav" class="nav" role="navigation" aria-label="Main Navigation">
         <ul class="nav__list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="about.html" class="nav__link active">About</a></li>
@@ -29,17 +47,18 @@
   <main class="container about-page section-gap">
     <section class="about-intro">
       <div class="about-hero-grid">
-        <div class="about-profile-photo glass-card">
-          <img src="images/image%20(87).png" alt="Karabo - Nomad Axion" class="profile-lg">
-        </div>
         <div class="about-intro-content">
           <h1>Hello — I'm Karabo</h1>
-          <p class="lead">I came up in broadcast, learning systems, timing, and flow, but what stuck with me is that every system needs a soul. Now I build frontends and tools that feel like home and move like art. As Nomad Axion I bring Nguni roots and ancestral wisdom into technology, blending craft with speed, story with system, and beauty with utility. Every project is a chance to make code that lives, breathes, and leaves a pulse.</p>
+          <p class="lead">I grew up in broadcast rooms, learning the art of timing, systems, and delivering moments to millions. Those experiences taught me that technology works best when it carries feeling. Today I translate that same discipline into interfaces and experiences — combining Nguni tradition, craft, and creative code. Whether I'm building a tiny UI or shaping a full product, my goal is the same: make something honest, warm, and useful.</p>
+          <p class="lead" style="margin-top:1rem">Beyond engineering, I worked as a Senior Transmission Controller at a final control centre — a broadcaster responsible for sending the final programme to viewers' screens. I've also operated cameras in production. Those roles gave me a deep respect for reliability, story framing, and the people behind every project.</p>
           <div class="social-links">
-            <a href="https://github.com/NomadAxion" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://threads.net/@NomadAxion" target="_blank" aria-label="Threads"><i class="fab fa-threads"></i></a>
-            <a href="https://instagram.com/NomadAxion" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/NomadAxion" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://threads.net/@NomadAxion" target="_blank" rel="noopener noreferrer" aria-label="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://instagram.com/NomadAxion" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
+        </div>
+        <div class="hero-image-placeholder image-container hero-image glass-card about-profile-photo">
+          <img src="images/f76a4798-e0d6-4093-bc73-52b9cc053fba.PNG" alt="Karabo - Nomad Axion" class="profile-illustration" width="800" height="800" loading="lazy" decoding="async">
         </div>
       </div>
     </section>
@@ -51,21 +70,54 @@
       </div>
 
       <div class="about-card glass-card">
-        <h2>Skills</h2>
+        <h2>Skills & Learning</h2>
         <ul class="skill-list">
-          <li><i class="fas fa-code"></i> JavaScript (ES6+), React</li>
-          <li><i class="fas fa-laptop-code"></i> HTML &amp; CSS — responsive systems</li>
-          <li><i class="fas fa-paint-brush"></i> Design systems, accessibility</li>
+          <li><i class="fas fa-code"></i> JavaScript (ES6+), React, Redux</li>
+          <li><i class="fas fa-laptop-code"></i> HTML &amp; CSS — responsive systems, accessibility, animations</li>
+          <li><i class="fas fa-paint-brush"></i> Design systems, UX, typography</li>
           <li><i class="fas fa-server"></i> Node.js, APIs, Python, Flask</li>
-          <li><i class="fas fa-video"></i> Broadcast tech & content pipelines</li>
-          <li><i class="fas fa-laptop"></i> Testlio Manual testing</li>
-          <li><i class="fas fa-laptop"></i> Chat prompt engineering</li>
+          <li><i class="fas fa-video"></i> Broadcasting: Senior Transmission Controller (final control centre) &amp; Camera Operator</li>
+          <li><i class="fas fa-database"></i> Currently studying: Data-Scientist: Analytics (Codecademy)</li>
+          <li><i class="fas fa-robot"></i> Chat prompt engineering & testing</li>
         </ul>
       </div>
 
       <div class="about-card glass-card">
+        <h2>Codecademy Coursework</h2>
+        <div id="moduleWrapper" class="module-list-wrapper">
+          <div class="modules-layout">
+              <ul id="codecademyList">
+                <li><i class="fas fa-lightbulb module-icon" aria-hidden="true"></i>Front-End Engineer Career Path</li>
+                <li><i class="fas fa-code module-icon" aria-hidden="true"></i>Fundamentals of HTML</li>
+                <li><i class="fas fa-paint-brush module-icon" aria-hidden="true"></i>Fundamentals of CSS</li>
+                <li><i class="fas fa-laptop-code module-icon" aria-hidden="true"></i>Developing Websites Locally</li>
+                <li><i class="fas fa-cloud-upload-alt module-icon" aria-hidden="true"></i>Deploying Websites</li>
+                <li><i class="fas fa-magic module-icon" aria-hidden="true"></i>Improved Styling with CSS</li>
+                <li><i class="fas fa-palette module-icon" aria-hidden="true"></i>Fundamentals of Web Design</li>
+                <li><i class="fas fa-mobile-alt module-icon" aria-hidden="true"></i>Making a Website Responsive</li>
+                <li><i class="fas fa-film module-icon" aria-hidden="true"></i>CSS Transitions and Animation</li>
+                <li><i class="fas fa-code module-icon" aria-hidden="true"></i>JavaScript Syntax, Part I</li>
+                <li><i class="fas fa-code module-icon" aria-hidden="true"></i>JavaScript Syntax, Part II</li>
+                <li><i class="fas fa-mouse-pointer module-icon" aria-hidden="true"></i>Building Interactive Websites</li>
+                <li><i class="fas fa-universal-access module-icon" aria-hidden="true"></i>Making A Website Accessible</li>
+                <li><i class="fab fa-github module-icon" aria-hidden="true"></i>Git and GitHub, Part I</li>
+                <li><i class="fas fa-code module-icon" aria-hidden="true"></i>JavaScript Syntax, Part III</li>
+                <li><i class="fas fa-vial module-icon" aria-hidden="true"></i>JavaScript Testing</li>
+                <li><i class="fas fa-network-wired module-icon" aria-hidden="true"></i>Async JavaScript and HTTP Requests</li>
+                <li><i class="fas fa-th-large module-icon" aria-hidden="true"></i>Web Apps</li>
+                <li><i class="fab fa-react module-icon" aria-hidden="true"></i>React, Part I &amp; II</li>
+                <li><i class="fas fa-project-diagram module-icon" aria-hidden="true"></i>Redux</li>
+                <li><i class="fab fa-github module-icon" aria-hidden="true"></i>Git and GitHub, Part II</li>
+                <li><i class="fas fa-rocket module-icon" aria-hidden="true"></i>Advanced Web Development</li>
+                <li><i class="fas fa-user-secret module-icon" aria-hidden="true"></i>Introduction to Ethical Hacking</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-card glass-card">
         <h2>Experience</h2>
-        <p>Senior engineer on media platforms, worked across product & editorial teams building tools for creatives and engineers alike. My background has given me a unique perspective on content delivery and user experience.</p>
+        <p>I worked in broadcast operations and production — most recently as a Senior Transmission Controller at a final control centre where I helped send the finished program to viewers' screens. I’ve also operated cameras on set. These roles sharpened my focus on reliability, timing, and the human story behind every frame.</p>
       </div>
 
       <div class="about-card glass-card">
@@ -77,7 +129,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© <span id="yearAbout"></span> Karabo</div>
+      <div>
+        © <span id="yearAbout"></span>
+        <span class="signature">Karabo</span>
+      </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
