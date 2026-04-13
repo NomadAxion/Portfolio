@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Nomad Axion — Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Abril Fatface removed (not used); keep fonts lean -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,11 +15,29 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><span class="brand__logo">NA</span><span class="brand__text">Nomad Axion</span></a>
-     <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
-  <span class="hamburger"></span>
-</button>
-      <nav id="mainNav" class="nav">
+      <a class="brand" href="index.html" aria-label="Nomad Axion — Home">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c77b56"/>
+                <stop offset="50%" stop-color="#e6d8bf"/>
+                <stop offset="100%" stop-color="#eab13d"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="96" height="96" rx="12" fill="url(#g1)" />
+            <!-- Slash mark -->
+            <rect x="44" y="12" width="8" height="76" rx="3" transform="rotate(22 48 50)" fill="rgba(255,255,255,0.12)" />
+            <!-- Letters (using system font for crispness) -->
+            <text x="50%" y="58%" text-anchor="middle" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="34" fill="#052427">NA</text>
+          </svg>
+        </span>
+        <span class="brand__text">Nomad Axion</span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="hamburger"></span>
+      </button>
+      <nav id="mainNav" class="nav" role="navigation" aria-label="Main Navigation">
         <ul class="nav__list">
           <li><a href="index.html" class="nav__link active">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
@@ -31,15 +52,15 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1>Code Without Borders</h1>
-        <p class="lead">Hi, I’m <strong>Nomad Axion (Karabo)</strong> — a self-taught developer blending culture, creativity, and code. I build apps that feel like home and look like art.</p>
+  <h1>Code Without Borders</h1>
+  <p class="lead">Hi, I'm <strong>Nomad Axion (Karabo)</strong> — a self-taught developer and storyteller. From broadcasting control rooms to late-night coding sprints, I craft digital experiences that carry rhythm, warmth, and purpose. My projects blend Nguni roots, creative direction, and clean code — apps that feel like home and look like art.</p>
         <div class="hero-cta">
           <a href="projects.html" class="btn btn-primary">See My Work</a>
-          <a href="contact.html" class="btn btn-alt">Let’s Connect</a>
+          <a href="contact.html" class="btn btn-alt">Let's Connect</a>
         </div>
       </div>
-      <div class="hero-image-placeholder">
-        <img src="images/profile.jpg" alt="Nomad Axion Profile Illustration" class="profile-illustration">
+      <div class="hero-image-placeholder image-container hero-image">
+        <img src="images/IMG_3991.webp" alt="Karabo (Nomad Axion) — profile photo" class="profile-illustration" width="800" height="800" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
@@ -48,14 +69,14 @@
   <section class="container featured section-gap">
     <header class="section-header">
       <h2>Featured Projects</h2>
-      <p class="muted">A taste of what I’ve been crafting recently.</p>
+      <p class="muted">A taste of what I've been crafting recently.</p>
     </header>
     <div class="project-tiles">
 
       <article class="project-tile">
         <a href="projects.html#nguni-generator" class="tile-link coming-soon">
           <div class="tile-media">
-            <img src="images/igama_lami_logo.png" alt="Nguni Name Generator">
+            <img src="images/igama_lami_logo.png" alt="Nguni Name Generator logo" class="project-img" width="600" height="600" loading="lazy" decoding="async">
           </div>
           <div class="tile-body">
             <h3>Nguni Name Generator <span class="badge">Coming Soon</span></h3>
@@ -65,25 +86,38 @@
       </article>
 
       <article class="project-tile">
-        <a href="projects.html#khanyaflare" class="tile-link coming-soon">
+        <a href="projects.html#bloom-and-brew" class="tile-link">
           <div class="tile-media">
-            <img src="images/khanyaflare.png" alt="KhanyaFlare">
+            <img src="images/background cup image.JPG" alt="Bloom &amp; Brew — flower and coffee shop" height="600" width="600" loading="lazy" decoding="async">
           </div>
           <div class="tile-body">
-            <h3>KhanyaFlare <span class="badge">Coming Soon</span></h3>
-            <p class="muted">Social + spiritual wellness platform (WIP).</p>
+            <h3>Bloom &amp; Brew <span class="badge badge--progress">In Progress</span></h3>
+            <p class="muted">Online flower-coffeeshop — botanical aesthetics meet warm UX.</p>
           </div>
         </a>
       </article>
 
       <article class="project-tile">
-        <a href="https://github.com/NomadAxion/Marvel-vs-DC-villain-showdown" target="_blank" class="tile-link">
+  <a href="https://github.com/NomadAxion/Marvel-vs-DC-villain-showdown" target="_blank" rel="noopener noreferrer" class="tile-link">
           <div class="tile-media">
-            <img src="images/marvelvsdc.png" alt="Marvel vs DC">
+            <img src="images/marvelvsdc.png" alt="Marvel vs DC project screenshot" class="project-img" width="600" height="600" loading="lazy" decoding="async">
           </div>
           <div class="tile-body">
             <h3>Marvel vs DC Showdown <i class="fas fa-external-link-alt external-icon"></i></h3>
             <p class="muted">Superhero project built for FNB App Academy.</p>
+          </div>
+        </a>
+      </article>
+
+      <article class="project-tile">
+  <a href="https://celestialbyunathikhumalo.netlify.app/" target="_blank" rel="noopener noreferrer" class="tile-link">
+          <div class="tile-media">
+            <img src="images/celestial logo.webp" alt="Celestial by Unathi Khumalo" class="project-img" width="600" height="600" loading="lazy" decoding="async">
+          </div>
+          <div class="tile-body">
+            <h3>Celestial — Unathi Khumalo <i class="fas fa-external-link-alt external-icon"></i></h3>
+            <p class="muted">A creative MUA &amp; hair specialist — a small business site blending bold visuals with an elegant booking flow. Her work is one-of-a-kind and growing fast.</p>
+            <div class="tile-tags"><span>Client work</span><span>Design</span><span>Bootstrap</span></div>
           </div>
         </a>
       </article>
@@ -100,19 +134,21 @@
       <h2>Tech Stack</h2>
     </header>
     <ul class="skill-list glass-card">
-      <li><strong>Languages & Frameworks:</strong> HTML • CSS • JavaScript • Python • Flask • Bootstrap</li>
-      <li><strong>Tools & Platforms:</strong> Git • GitHub • Netlify • Phoenix editor • VS Code</li>
+      <li><strong>Languages &amp; Frameworks:</strong> HTML • CSS • JavaScript • React • Redux • Python • Flask • Bootstrap</li>
+      <li><strong>Tools &amp; Platforms:</strong> Git • GitHub • Netlify • Phoenix editor • VS Code</li>
+      <li><strong>Currently Learning:</strong> Data Science (Python) • Ethical Hacking</li>
     </ul>
   </section>
 
   <!-- GOALS -->
   <section class="container goals section-gap">
     <header class="section-header">
-      <h2>2025 Goals</h2>
+      <h2>2026 Goals</h2>
     </header>
     <ul class="skill-list glass-card">
-      <li><i class="fas fa-check-circle"></i> Complete my social media app</li>
-      <li><i class="fas fa-check-circle"></i> Launch open-source Nguni Name Generator</li>
+      <li><i class="fas fa-check-circle" style="color:var(--accent-2)"></i> <strong style="color:var(--accent-2)">Done:</strong> Codecademy Front-End Engineer Career Path</li>
+      <li><i class="fas fa-spinner fa-spin" style="color:var(--accent)"></i> Launch Bloom &amp; Brew &amp; Ndaza Originals</li>
+      <li><i class="fas fa-spinner fa-spin" style="color:var(--accent)"></i> Launch open-source Nguni Name Generator</li>
       <li><i class="fas fa-check-circle"></i> Contribute to Afro-tech community projects</li>
     </ul>
   </section>
@@ -120,7 +156,10 @@
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© <span id="yearIndex"></span> Karabo</div>
+      <div>
+        © <span id="yearIndex"></span>
+        <span class="signature">Karabo</span>
+      </div>
       <nav class="footer-nav">
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
