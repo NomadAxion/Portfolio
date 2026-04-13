@@ -2,30 +2,38 @@
 
 /* Variables */
 :root {
-  --bg: #0d121c;
-  --card: #151d29;
-  --muted: #a0aec0;
-  --text: #e2e8f0;
-  --accent: #6ad6ff;
-  --accent-2: #8be38b;
-  --gradient-soft: linear-gradient(135deg, rgba(106, 214, 255, 0.1), rgba(139, 227, 139, 0.1));
-  --gradient-button: linear-gradient(90deg, #6ad6ff 0%, #8be38b 100%);
-  --glass: rgba(255, 255, 255, 0.06);
-  --glass-light: rgba(255, 255, 255, 0.02);
+  /* Slightly darker light-warm background palette to pair with tan/gold accents */
+  --bg: #e9dcc6; /* warm beige base (a bit darker than before) */
+  --card: #ffffff; /* cards sit on a light surface */
+  --muted: #504c49; /* warm muted brown */
+  --text: #514c48; /* warm charcoal for readable text on light bg */
+  /* lighter, warmer palette */
+  --accent: #c77b56; /* lighter terracotta */
+  --accent-2: #eab13d; /* warm gold */
+  --accent-3: #e6d8bf; /* light tan / beige */
+  --accent-4: #f7e5c3; /* pale gold highlight */
+  --signature-color: #9a553c; /* darker warm hue for footer signature (Karabo) */
+  --gradient-soft: linear-gradient(135deg, rgba(199,123,86,0.06), rgba(227,181,90,0.05));
+  --gradient-button: linear-gradient(90deg, rgba(199,123,86,1) 0%, rgba(230,216,191,1) 45%, rgba(227,181,90,1) 100%);
+  --glass: rgba(0,0,0,0.03);
+  --glass-light: rgba(0,0,0,0.02);
+  --glass-border: rgba(0,0,0,0.06);
   --radius: 12px;
   --max-width: 1100px;
   --container-padding: 1.5rem;
-  --fs-base: 17px;
+  --fs-base: 16px;
   --transition-fast: 0.2s ease-out;
   --transition-medium: 0.3s ease-in-out;
-  --shadow-light: 0 4px 15px rgba(2, 6, 23, 0.3);
-  --shadow-medium: 0 10px 30px rgba(2, 6, 23, 0.6);
-  --shadow-accent: 0 8px 25px rgba(106, 214, 255, 0.15);
+  --shadow-light: 0 6px 18px rgba(16,12,8,0.06);
+  --shadow-medium: 0 12px 30px rgba(16,12,8,0.10);
+  --shadow-accent: 0 8px 25px rgba(237, 230, 227, 0.1);
+  /* overlay wash opacity (default subtle) - can be overridden with .overlay-strong on body */
+  --overlay-opacity: 0.03;
   
   /* New variables for consistent image handling */
   --image-radius: var(--radius);
   --project-image-height: 200px;
-  --hero-image-max-height: 450px;
+  --hero-image-max-height: 600px;
 }
 
 /* Reset-ish */
@@ -39,14 +47,154 @@ html {
 }
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(180deg, #061017 0%, #07101a 60%, #0a1420 100%);
+  /* Use Poppins as the site-wide creative sans for a playful but professional tone */
+  font-family: "Poppins", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Light warm gradient background (tan / beige) */
+  background: linear-gradient(180deg, #f7f3ed 0%, #efe6d2 45%, #e7d8c0 100%);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   font-size: var(--fs-base);
 }
+
+/* Personality & signature */
+.signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.35rem;
+  margin-left: 0.6rem;
+  /* darker but warm hue so the footer name is visible yet cohesive */
+  color: var(--signature-color);
+  display: inline-block;
+  transform-origin: left center;
+  letter-spacing: 0.02em;
+}
+
+/* Glass-luxe card utility used across the site */
+.glass-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.55);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.01) 40%, rgba(255,255,255,0.03) 100%);
+  pointer-events: none;
+}
+
+/* Update primary button gradient to feel richer */
+.btn-primary {
+  background: var(--gradient-button);
+  color: #042427;
+  box-shadow: 0 10px 30px rgba(255, 122, 180, 0.08), var(--shadow-accent);
+}
+
+/* Subtle entrance animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes popIn { from { opacity: 0; transform: scale(0.98) translateY(6px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.project-tile { animation: popIn 420ms var(--transition-medium) both; }
+.section-header, .about-intro, .hero { animation: fadeUp 520ms ease both; }
+
+/* Placeholder tile styling used for Bloom & Brew and Ndaza-Originalz */
+.tile-media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(216,197,161,0.06), rgba(255,209,102,0.03));
+}
+.tile-placeholder-inner { display:flex; flex-direction:column; align-items:center; gap:0.6rem; color:var(--muted); }
+.tile-placeholder-inner i { color:var(--accent); }
+
+/* overlay reveal on project images for hover/focus */
+.tile-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* lighter, warm overlay instead of the darker grey/black gradient; opacity controlled by --overlay-opacity */
+  background: linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(233,220,202,var(--overlay-opacity)) 100%);
+  opacity: 0;
+  transition: opacity var(--transition-medium) ease;
+}
+.project-tile:hover .tile-media::after,
+.project-tile.hovered .tile-media::after,
+.project-tile:focus-within .tile-media::after {
+  opacity: 1;
+}
+
+/* subtle lift of body on hover/focus to feel interactive */
+.project-tile:hover .tile-body,
+.project-tile.hovered .tile-body,
+.project-tile:focus-within .tile-body {
+  transform: translateY(-6px);
+}
+.tile-body { transition: transform var(--transition-medium) ease; }
+
+/* keyboard focus visible state for accessibility */
+.project-tile:focus-within {
+  outline: 3px solid rgba(255,209,102,0.12);
+  outline-offset: 4px;
+}
+
+/* Overlay CTA that appears on hover/focus */
+.tile-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding: 1rem;
+  /* use a soft warm wash so overlay feels lighter and integrates with the site's palette; opacity controlled by --overlay-opacity */
+  background: linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(233,220,202,calc(var(--overlay-opacity) * 1.6)) 100%);
+  color: var(--text);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-medium) ease, transform var(--transition-medium) ease;
+}
+.project-tile:hover .tile-overlay,
+.project-tile.hovered .tile-overlay,
+.project-tile:focus-within .tile-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.tile-overlay .overlay-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  /* lighter text shadow for readability on the soft warm overlay */
+  text-shadow: 0 1px 4px rgba(16,12,8,0.06);
+}
+.tile-overlay .overlay-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.9rem;
+  background: linear-gradient(90deg, rgba(255,209,102,0.95), rgba(216,197,161,0.95));
+  color: #1a1209;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(16,12,8,0.08);
+  text-decoration: none;
+}
+
+/* Ensure overlay contents are readable on small screens */
+@media (max-width: 780px) {
+  .tile-overlay { padding: 0.8rem; }
+  .tile-overlay .overlay-title { font-size: 1rem; }
+  .tile-overlay .overlay-cta { padding: 0.5rem 0.8rem; font-size: 0.95rem; }
+}
+
+/* Slight typographic tweaks */
+h1, h2, h3 { text-rendering: optimizeLegibility; }
+p.lead { letter-spacing: -0.01em; }
+.muted { opacity: 0.95; }
 
 /* Enhanced image handling */
 img {
@@ -104,7 +252,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Merriweather", serif;
+  /* Use Playfair Display for expressive headings */
+  font-family: "Playfair Display", "Merriweather", serif;
   color: var(--text);
   line-height: 1.2;
   margin-top: 1.5em;
@@ -142,10 +291,11 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 60;
-  backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, rgba(7, 10, 14, 0.85), rgba(7, 10, 14, 0.5));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: var(--shadow-light);
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 6px 20px rgba(2,6,23,0.5);
 }
 
 .header-inner {
@@ -170,22 +320,98 @@ h3 {
   color: var(--accent);
 }
 .brand__logo {
-  display: inline-grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--gradient-button);
-  font-weight: 900;
-  color: #052427;
-  box-shadow: var(--shadow-accent);
-  letter-spacing: -0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  min-height: 56px;
+  padding: 0.45rem 0.8rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(199,123,86,1) 0%, rgba(230,216,191,1) 50%, rgba(227,181,90,1) 100%);
+  box-shadow: 0 10px 30px rgba(154,85,60,0.12), var(--shadow-accent);
+  letter-spacing: -0.02em;
+  /* Use a more legible geometric sans for the logo mark so N/A reads clearly */
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--signature-color);
+  transform-origin: center;
+  position: relative;
+  overflow: visible;
+  white-space: nowrap;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), opacity 220ms ease;
+}
+
+/* Ensure inline SVG scales nicely inside the logo container */
+.brand__logo svg {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+/* Slightly larger svg on large screens */
+@media (min-width: 1100px) {
+  .brand__logo svg { width: 70px; height: 70px; }
+}
+
+/* Reduce SVG size on small screens */
+@media (max-width: 420px) {
+  .brand__logo svg { width: 46px; height: 46px; }
+}
+
+/* Animated floating + shine for the logo mark */
+.brand__logo::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 160%;
+  height: 220%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.0) 45%, rgba(255,255,255,0.45) 52%, rgba(255,255,255,0.0) 60%);
+  transform: rotate(18deg) translateX(-120%);
+  transition: transform 1.2s ease-in-out;
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+@keyframes logoFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+.brand__logo { 
+  /* entrance animation first, then gentle float (float starts after 700ms) */
+  animation: logoEntrance 700ms cubic-bezier(.22,.9,.32,1) both, logoFloat 3.8s ease-in-out 700ms infinite;
+}
+.brand:hover .brand__logo,
+.brand:focus .brand__logo { transform: translateY(-6px) scale(1.04); box-shadow: 0 18px 40px rgba(154,85,60,0.14); }
+.brand:hover .brand__logo::after,
+.brand:focus .brand__logo::after { transform: rotate(18deg) translateX(40%); }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .brand__logo,
+  .brand__logo::after { animation: none !important; transition: none !important; }
+}
+
+/* Entrance animation shown on page load */
+@keyframes logoEntrance {
+  0% { opacity: 0; transform: translateY(-8px) scale(0.92); }
+  60% { opacity: 1; transform: translateY(2px) scale(1.02); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 .brand__text {
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-size: 1.1rem;
+  /* Use a distinctive display font for the brand name to make it artistic */
+  font-family: 'Abril Fatface', 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2.6vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: var(--text);
+  /* subtle warm accent + soft shadow for depth */
+  text-shadow: 0 3px 10px rgba(154,85,60,0.08);
 }
 
 /* Nav */
@@ -254,6 +480,92 @@ h3 {
   box-shadow: 0 0 25px rgba(106, 214, 255, 0.4);
   transform: translateY(-3px) scale(1.02);
   color: #052427;
+}
+
+/* Responsive adjustments for wide/tablet/phone breakpoints */
+/* Large screens: slightly bigger project images and header spacing */
+@media (min-width: 1100px) {
+  :root {
+    --project-image-height: 260px;
+    --container-padding: 2rem;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr 520px;
+    gap: 3.5rem;
+  }
+}
+
+/* Medium screens / tablets */
+@media (max-width: 1100px) and (min-width: 781px) {
+  :root { --project-image-height: 220px; }
+  .hero-inner { grid-template-columns: 1fr 420px; gap: 2.2rem; }
+  .about-hero-grid { grid-template-columns: 1fr 360px; }
+  .brand__text { font-size: clamp(1rem, 2.4vw, 1.4rem); }
+}
+
+/* Small screens / phones */
+@media (max-width: 780px) {
+  :root {
+    --project-image-height: 160px;
+    --container-padding: 1rem;
+    --fs-base: 15px;
+  }
+
+  /* Stack hero vertically and make image smaller */
+  .hero-inner,
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .hero-image-placeholder,
+  .about-profile-photo {
+    max-height: 320px;
+    margin: 0 auto;
+  }
+
+  /* Make header compact */
+  .header-inner { padding: 0.6rem 0; }
+  .brand__logo { min-width: 56px; min-height: 44px; padding: 0.3rem 0.6rem; font-size: 0.95rem; }
+  .brand__text { font-size: 1.05rem; }
+
+  /* Nav becomes the mobile menu already handled; increase touch targets */
+  .nav__link { padding: 0.9rem 1rem; }
+
+  /* Project tile layout: slightly smaller gaps and tighter card padding */
+  .project-tiles { gap: 1rem; }
+  .tile-body { padding: 0.95rem; }
+  .tile-body h3 { font-size: 1.15rem; }
+
+  /* Reduce overlay padding on small screens */
+  .tile-overlay { padding: 0.6rem; }
+  .tile-overlay .overlay-cta { padding: 0.45rem 0.7rem; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  :root { --project-image-height: 140px; --fs-base: 14px; }
+  .brand__text { font-size: 1rem; }
+  .hero h1 { font-size: clamp(1.6rem, 6.5vw, 2.2rem); }
+  .project-tiles { grid-template-columns: 1fr; }
+  .tile-body h3 { font-size: 1.05rem; }
+}
+
+/* Ensure images in tiles keep aspect ratio and padding on small screens */
+@media (max-width: 780px) {
+  .tile-media { padding: 0.4rem; border-radius: 10px; }
+  .tile-media img { max-width: 100%; max-height: 100%; }
+}
+
+/* Disabled/placeholder link styling */
+.is-disabled {
+  pointer-events: none;
+  opacity: 0.7;
+  filter: grayscale(6%);
+}
+.link-sm.disabled {
+  color: var(--muted);
+  opacity: 0.9;
+  cursor: default;
 }
 
 
@@ -370,12 +682,21 @@ h3 {
   gap: 3rem;
   align-items: center;
 }
+
+/* About page hero grid should mirror the homepage hero layout */
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* content + image column */
+  gap: 3rem;
+  align-items: center;
+}
 .hero h1 {
   font-size: clamp(2.8rem, 5vw, 4.2rem);
   margin: 0 0 0.8rem;
   font-weight: 800;
   line-height: 1.1;
   background: linear-gradient(90deg, var(--text), var(--muted));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -411,22 +732,27 @@ h3 {
 .hero-image-placeholder img {
   width: 100%;
   height: auto;
-  object-fit: fill;
+  object-fit: cover;
   display: block;
   object-position: center;
+}
+
+/* Prevent background scrolling when mobile nav is open */
+body.nav-open {
+  overflow: hidden;
 }
 
 /* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  padding: 0.8rem 1.4rem;
+  gap: 0.6rem;
+  padding: 0.66rem 1.1rem; /* slightly smaller buttons */
   border-radius: 10px;
   text-decoration: none;
   font-weight: 700;
   transition: all var(--transition-medium);
-  font-size: 1.05rem;
+  font-size: 0.98rem; /* slightly reduced font size */
   box-shadow: var(--shadow-light);
 }
 .btn-primary {
@@ -472,7 +798,8 @@ h3 {
 .section-header h2 {
   font-size: clamp(2rem, 4.5vw, 3rem);
   font-weight: 800;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-2), var(--accent));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
@@ -518,17 +845,23 @@ h3 {
 }
 .tile-media {
   height: var(--project-image-height);
-  background: linear-gradient(135deg, #0d121c, #151d29);
+  /* warm beige background to make letterbox areas intentional */
+  background: linear-gradient(135deg, var(--accent-3) 0%, rgba(230,216,191,0.35) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   position: relative;
+  padding: 0.6rem; /* subtle padding so images don't touch the edges */
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid rgba(16,12,8,0.06);
+  box-shadow: 0 6px 18px rgba(16,12,8,0.04);
 }
 .tile-media img {
-  width: auto;
-  height: 100%;
-  object-fit: cover;
+  /* keep the whole image visible and centered inside the padded tile */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
   display: block;
   transition: transform var(--transition-medium);
 }
@@ -605,12 +938,175 @@ h3 {
   box-shadow: 0 8px 20px rgba(2, 6, 23, 0.4);
 }
 
+/* Two-column layout for long lists (Codecademy modules) to reduce long scrolling */
+.skill-list.columned {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 0.6rem 2rem;
+  align-items: start;
+  justify-items: start;
+}
+
+@media (max-width: 780px) {
+  .skill-list.columned {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure columned list items wrap and don't get cut off */
+.skill-list.columned li {
+  width: 100%;
+  box-sizing: border-box;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding-right: 0.5rem;
+}
+
+/* Style the module items as long rectangular cards inside the module wrapper */
+.module-list-wrapper .skill-list.columned li {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  display: block;
+  min-height: 48px;
+  align-items: center;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Slightly different visual treatment for the Codecademy list title and muted copy */
+.module-list-wrapper p.muted {
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+/* Collapsible module list wrapper to prevent long scrolling and avoid cut-off text */
+.module-list-wrapper {
+  position: relative;
+  transition: max-height 400ms ease, padding 300ms ease;
+}
+.module-list-wrapper.collapsed {
+  max-height: 340px; /* shows first portion of the list */
+  overflow: hidden;
+  padding-bottom: 1.2rem;
+}
+.module-list-wrapper .fade-bottom {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(255,255,255,0.06));
+  pointer-events: none;
+}
+.module-list-wrapper .toggle-holder { display:flex; justify-content:center; margin-top:0.6rem; }
+
+/* New modules panel layout: left-side scrollable square grid for module cards */
+.modules-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.modules-panel {
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+  /* fixed height with internal scroll so the modules list is compact and professional-looking */
+  height: 480px;
+  overflow-y: auto;
+}
+
+.modules-panel ul {
+  display: grid;
+  grid-template-columns: 1fr; /* single-column list for readable vertical flow */
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.modules-panel li {
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+  border: 1px solid rgba(0,0,0,0.04);
+  border-radius: 10px;
+  display: block;
+  padding: 0.75rem 0.95rem;
+  min-height: 48px; /* compact but readable */
+  text-align: left; /* left-align for professional readability */
+  font-family: "Merriweather", serif; /* use Merriweather for module titles */
+  font-weight: 700; /* heavier weight for titles */
+  color: var(--text);
+  font-size: 1.05rem; /* consistent with other skill-list items */
+  line-height: 1.5;
+}
+
+.modules-panel li .module-icon {
+  margin-right: 0.7rem;
+  color: var(--accent-2);
+  font-size: 1.02rem;
+  width: 1.1rem;
+  display: inline-block;
+  opacity: 0.95;
+}
+
+/* subtle scrollbar for the modules panel */
+.modules-panel::-webkit-scrollbar { width: 10px; }
+.modules-panel::-webkit-scrollbar-thumb { background: linear-gradient(180deg, rgba(199,123,86,0.15), rgba(199,123,86,0.08)); border-radius: 8px; }
+.modules-panel::-webkit-scrollbar-track { background: transparent; }
+
+/* Optional utility classes: add .overlay-strong to <body> to increase wash opacity */
+.overlay-strong {
+  --overlay-opacity: 0.8;
+}
+.overlay-subtle {
+  --overlay-opacity: 0.08;
+}
+
+.module-details {
+  background: var(--card);
+  border: 1px solid var(--glass-border);
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow-medium);
+}
+
+@media (max-width: 980px) {
+  .modules-layout { grid-template-columns: 1fr; }
+  .modules-panel { height: auto; }
+  .modules-panel li { aspect-ratio: auto; min-height: 56px; }
+}
+
+/* Button styling overrides for the toggle to match the palette */
+#toggleModules.btn.btn-alt {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--accent-2);
+  padding: 0.6rem 1rem;
+}
+
+/* When expanded show full list */
+.module-list-wrapper.expanded {
+  max-height: 2000px;
+}
+
+@media (max-width: 780px) {
+  .module-list-wrapper.collapsed { max-height: 420px; }
+}
+
 /* Footer */
 .site-footer {
   padding: 1.8rem 0;
   margin-top: 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(180deg, rgba(7, 10, 14, 0.5), rgba(7, 10, 14, 0.8));
+  border-top: 1px solid var(--glass-border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+  backdrop-filter: blur(6px) saturate(120%);
 }
 .footer-inner {
   display: flex;
@@ -642,7 +1138,8 @@ h3 {
   text-align: center;
   margin-bottom: 2.5rem;
   font-size: clamp(1.8rem, 4vw, 2.5rem);
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-2), var(--accent));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -748,7 +1245,8 @@ h3 {
 
 .about-intro h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: linear-gradient(90deg, var(--accent-4), var(--accent-3), var(--accent));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
@@ -762,8 +1260,9 @@ h3 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
+  grid-auto-rows: auto;
   padding: 1.5rem 0;
 }
 
@@ -774,6 +1273,7 @@ h3 {
   box-shadow: var(--shadow-medium);
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  align-self: start;
 }
 
 .about-card:hover {
@@ -824,25 +1324,58 @@ h3 {
   margin-bottom: 2rem;
 }
 
-.about-profile-photo .image-container {
-  max-width: 160px; /* nice balance, not too tiny */
-  aspect-ratio: 1/1;
-  border-radius: 50%;
+/* Profile photo: make the image fill the card and be a consistent circular avatar */
+.about-profile-photo.glass-card {
+  padding: 0; /* remove the glass-card padding so the image can fill the container */
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-medium);
-  transition: transform 0.6s ease, box-shadow 0.6s ease;
-}
-
-.about-profile-photo .image-container:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
 }
 
 .about-profile-photo img.profile-lg {
-  width: 100%;
-  height: 100%;
+  width: 420px;
+  height: 420px;
+  border-radius: var(--radius); /* square with rounded corners */
   object-fit: cover;
   display: block;
+  box-shadow: var(--shadow-medium);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.about-profile-photo img.profile-lg:hover {
+  transform: scale(1.03) rotate(0.6deg);
+  box-shadow: 0 12px 32px rgba(16,12,8,0.12);
+}
+
+/* Match the hero image proportion exactly on the About page */
+.about-profile-photo.hero-image,
+.hero-image-placeholder.about-profile-photo {
+  max-width: 420px; /* match hero width */
+  width: 100%;
+}
+
+.about-profile-photo.hero-image img.profile-illustration,
+.hero-image-placeholder.about-profile-photo img.profile-illustration {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* ensure it fills like the hero */
+  display: block;
+}
+
+/* By default the image inherits the same hover scale as other image-containers.
+   Add .no-hover on the container to disable the hover effect for the About image if desired. */
+.about-profile-photo.no-hover:hover img.profile-illustration {
+  transform: none !important;
+}
+
+@media (max-width: 780px) {
+  .about-profile-photo img.profile-lg {
+    width: 140px;
+    height: 140px;
+  }
 }
 /* Scroll-to-top button */
 .scroll-to-top {
@@ -914,6 +1447,12 @@ a:hover {
   }
   .hero-cta {
     justify-content: center;
+  }
+
+  /* make about hero stack on smaller screens like the main hero */
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
   
   /* Adjust image containers on medium screens */
@@ -1010,6 +1549,19 @@ a:hover {
 }
 
 /* Fallback for browsers that don't support aspect-ratio property */
+/* -- Glass-luxe overrides (stronger transluency, hover glow, vibrant placeholders) -- */
+.project-tile {
+  background: rgba(18,24,32,0.45) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+.project-tile:hover {
+  box-shadow: 0 30px 60px rgba(2, 6, 23, 0.85), 0 12px 40px rgba(255,122,180,0.06) !important;
+}
+.tile-media {
+  background: linear-gradient(135deg, rgba(10,12,16,0.6), rgba(20,18,28,0.5)) !important;
+}
+.tile-placeholder-inner i { color: var(--accent-3) !important; }
+
 @supports not (aspect-ratio: 1/1) {
   .aspect-ratio-16-9::before {
     float: left;
