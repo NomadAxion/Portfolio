@@ -4,18 +4,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact — Nomad Axion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html"><span class="brand__logo">NA</span><span class="brand__text">Nomad Axion</span></a>
+      <a class="brand" href="index.html" aria-label="Nomad Axion — Home">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 100 100" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c77b56"/>
+                <stop offset="50%" stop-color="#e6d8bf"/>
+                <stop offset="100%" stop-color="#eab13d"/>
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="96" height="96" rx="12" fill="url(#g1)" />
+            <rect x="44" y="12" width="8" height="76" rx="3" transform="rotate(22 48 50)" fill="rgba(255,255,255,0.12)" />
+            <text x="50%" y="58%" text-anchor="middle" font-family="Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="34" fill="#052427">NA</text>
+          </svg>
+        </span>
+        <span class="brand__text">Nomad Axion</span>
+      </a>
      <button class="nav-toggle" aria-expanded="false" aria-controls="mainNav">
   <span class="hamburger"></span>
 </button>
-      <nav id="mainNav" class="nav">
+  <nav id="mainNav" class="nav" role="navigation" aria-label="Main Navigation">
         <ul class="nav__list">
           <li><a href="index.html" class="nav__link">Home</a></li>
           <li><a href="about.html" class="nav__link">About</a></li>
@@ -57,11 +75,11 @@
 
       <aside class="contact-info glass-card">
         <h3>Other ways to reach me</h3>
-        <p class="muted">Email: <a href="mailto:CipherBee@proton.me" class="link-sm">hello@nomadaxion.com</a></p>
+  <p class="muted">Email: <a href="mailto:hello@nomadaxion.com" class="link-sm">hello@nomadaxion.com</a></p>
         <p class="muted">Connect on: <br>
-          <a href="https://github.com/NomadAxion" target="_blank" class="link-sm"><i class="fab fa-github"></i> GitHub</a> /
-          <a href="https://threads.net/@NomadAxion" target="_blank" class="link-sm"><i class="fab fa-threads"></i> Threads</a> /
-          <a href="https://instagram.com/NomadAxion" target="_blank" class="link-sm"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://github.com/NomadAxion" target="_blank" rel="noopener noreferrer" class="link-sm"><i class="fab fa-github"></i> GitHub</a> /
+          <a href="https://threads.net/@NomadAxion" target="_blank" rel="noopener noreferrer" class="link-sm"><i class="fab fa-threads"></i> Threads</a> /
+          <a href="https://instagram.com/NomadAxion" target="_blank" rel="noopener noreferrer" class="link-sm"><i class="fab fa-instagram"></i> Instagram</a>
         </p>
 
         <div class="mini-cta">
@@ -73,7 +91,10 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>© <span id="yearContact"></span> Karabo</div>
+      <div>
+        © <span id="yearContact"></span>
+        <span class="signature">Karabo</span>
+      </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
