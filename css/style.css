@@ -732,9 +732,39 @@ h3 {
 .hero-image-placeholder img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain; /* show the whole image without cropping */
   display: block;
   object-position: center;
+}
+
+/* About profile photo should also be fully visible and responsive */
+.about-profile-photo img,
+.hero-image-placeholder .profile-illustration,
+.about-profile-photo .profile-illustration {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: var(--hero-image-max-height);
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Ensure the image container centers content and preserves aspect ratio without overflow */
+.hero-image-placeholder,
+.about-profile-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: transparent;
+}
+
+@media (max-width: 780px) {
+  .hero-image-placeholder img,
+  .about-profile-photo img {
+    max-height: 320px; /* tighter cap on small screens */
+  }
 }
 
 /* Prevent background scrolling when mobile nav is open */
